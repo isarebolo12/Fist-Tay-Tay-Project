@@ -56,6 +56,7 @@ const eraName = document.querySelector("#era-name");
 const eraDescription = document.querySelector("#era-description");
 const swatches = document.querySelector("#swatches");
 const saveEraButton = document.querySelector("#save-era");
+const randomEraButton = document.querySelector("#random-era");
 const score = document.querySelector("#score");
 const questionProgress = document.querySelector("#question-progress");
 const progressBar = document.querySelector("#progress-bar");
@@ -171,6 +172,12 @@ function nextQuestion() {
   renderQuestion();
 }
 
+function chooseRandomEra() {
+  const keys = Object.keys(eras).filter((key) => key !== selectedEra);
+  const nextKey = keys[Math.floor(Math.random() * keys.length)];
+  renderEra(nextKey);
+}
+
 function saveEra() {
   if (!savedEras.includes(selectedEra)) {
     savedEras.push(selectedEra);
@@ -209,6 +216,7 @@ function clearSaved() {
 }
 
 saveEraButton.addEventListener("click", saveEra);
+randomEraButton.addEventListener("click", chooseRandomEra);
 nextQuestionButton.addEventListener("click", nextQuestion);
 clearSavedButton.addEventListener("click", clearSaved);
 
