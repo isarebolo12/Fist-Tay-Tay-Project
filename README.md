@@ -39,6 +39,13 @@ This project uses externally hosted Wikimedia Commons images:
   Wikimedia Commons:
   https://commons.wikimedia.org/wiki/File:Taylor_Swift_in_Pittsburgh_2009.JPG
 
+## Deployment checklist
+
+- Create a new public GitHub repository.
+- Commit the project files with the new account configured locally.
+- Push `main` to GitHub.
+- Enable GitHub Pages from the repository settings if a live URL is needed.
+
 ## Copyright note
 
 The lyric game uses only very short fragments. It does not include full lyrics,
