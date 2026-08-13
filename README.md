@@ -3,6 +3,12 @@
 A Taylor Swift inspired fan dashboard for trying out a fresh GitHub account and
 publishing a functional first repository.
 
+## Live demo
+
+View the deployed project here:
+
+https://isarebolo12.github.io/Fist-Tay-Tay-Project/
+
 ## What it does
 
 - Lets visitors switch between Taylor eras.
