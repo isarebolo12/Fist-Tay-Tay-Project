@@ -56,6 +56,8 @@ const lyricQuestions = [
   { fragment: "city lights comeback", answer: "Welcome to New York", choices: ["Welcome to New York", "Maroon", "August"] }
 ];
 
+const hero = document.querySelector(".hero");
+const heroImage = document.querySelector(".hero__image");
 const eraList = document.querySelector("#era-list");
 const eraCount = document.querySelector("#era-count");
 const eraImage = document.querySelector("#era-image");
@@ -271,6 +273,11 @@ nextQuestionButton.addEventListener("click", nextQuestion);
 resetQuizButton.addEventListener("click", resetQuiz);
 clearSavedButton.addEventListener("click", clearSaved);
 copyVaultButton.addEventListener("click", copyVaultCard);
+heroImage.addEventListener("error", () => {
+  hero.classList.add("is-image-fallback");
+  heroImage.src = fallbackImage;
+  heroImage.alt = "Hero image unavailable";
+});
 eraImage.addEventListener("error", () => {
   featurePanel.classList.add("is-image-fallback");
   eraImage.src = fallbackImage;

@@ -47,6 +47,12 @@ button { font: inherit; }
   object-fit: cover;
 }
 
+.hero.is-image-fallback .hero__image {
+  object-fit: contain;
+  padding: 48px;
+  background: #f7f2ec;
+}
+
 .hero__shade { background: linear-gradient(90deg, rgba(18, 18, 20, 0.82), rgba(18, 18, 20, 0.24)); }
 
 .hero__content {
