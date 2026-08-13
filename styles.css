@@ -84,7 +84,7 @@ h2 {
   letter-spacing: 0;
 }
 
-.hero p:last-child, #era-description, .feedback, .credits {
+.hero p:last-child, #era-description, .image-credit, .feedback, .credits {
   color: var(--muted);
   line-height: 1.55;
 }
@@ -195,6 +195,16 @@ h2 {
 }
 
 .feature-panel__body { padding: 22px; }
+
+.image-credit {
+  font-size: 0.86rem;
+}
+
+.image-credit a {
+  color: var(--accent-strong);
+  font-weight: 800;
+}
+
 
 .swatches {
   display: grid;
