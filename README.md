@@ -10,6 +10,7 @@ publishing a functional first repository.
 - Includes a short lyric-fragment guessing game.
 - Saves favorite eras in `localStorage`.
 - Generates a small vault-card summary from the current state.
+- Supports left and right arrow keys for switching eras.
 
 ## Run locally
 

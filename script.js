@@ -263,6 +263,19 @@ resetQuizButton.addEventListener("click", resetQuiz);
 clearSavedButton.addEventListener("click", clearSaved);
 copyVaultButton.addEventListener("click", copyVaultCard);
 
+document.addEventListener("keydown", (event) => {
+  const keys = Object.keys(eras);
+  const currentIndex = keys.indexOf(selectedEra);
+
+  if (event.key === "ArrowRight") {
+    renderEra(keys[(currentIndex + 1) % keys.length]);
+  }
+
+  if (event.key === "ArrowLeft") {
+    renderEra(keys[(currentIndex - 1 + keys.length) % keys.length]);
+  }
+});
+
 renderEra(selectedEra);
 renderQuestion();
 renderSaved();
