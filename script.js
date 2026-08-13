@@ -57,6 +57,8 @@ const eraDescription = document.querySelector("#era-description");
 const swatches = document.querySelector("#swatches");
 const saveEraButton = document.querySelector("#save-era");
 const score = document.querySelector("#score");
+const questionProgress = document.querySelector("#question-progress");
+const progressBar = document.querySelector("#progress-bar");
 const lyricFragment = document.querySelector("#lyric-fragment");
 const answers = document.querySelector("#answers");
 const feedback = document.querySelector("#feedback");
@@ -118,7 +120,10 @@ function renderEra(eraKey) {
 
 function renderQuestion() {
   const question = lyricQuestions[questionIndex];
+  const progress = ((questionIndex + 1) / lyricQuestions.length) * 100;
   lyricFragment.textContent = `"${question.fragment}"`;
+  questionProgress.textContent = `Question ${questionIndex + 1} of ${lyricQuestions.length}`;
+  progressBar.style.width = `${progress}%`;
   answers.innerHTML = "";
   feedback.textContent = "Choose the matching song title.";
 

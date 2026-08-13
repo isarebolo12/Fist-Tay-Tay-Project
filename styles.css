@@ -119,6 +119,30 @@ h2 {
 
 .panel__header strong { color: var(--accent-strong); }
 
+.quiz-progress {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e8dfd6;
+}
+
+.progress-bar {
+  width: 25%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent-strong);
+  transition: width 180ms ease;
+}
+
 .era-list, .answers {
   display: grid;
   gap: 10px;
