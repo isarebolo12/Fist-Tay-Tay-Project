@@ -224,7 +224,13 @@ blockquote {
 
 .feedback {
   min-height: 48px;
-  margin: 14px 0;
+  margin: 14px 0 6px;
+}
+
+.streak {
+  margin-bottom: 14px;
+  color: var(--accent-strong);
+  font-weight: 800;
 }
 
 .saved-panel { grid-column: 3; }

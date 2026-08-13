@@ -62,6 +62,7 @@ const progressBar = document.querySelector("#progress-bar");
 const lyricFragment = document.querySelector("#lyric-fragment");
 const answers = document.querySelector("#answers");
 const feedback = document.querySelector("#feedback");
+const streak = document.querySelector("#streak");
 const nextQuestionButton = document.querySelector("#next-question");
 const savedList = document.querySelector("#saved-list");
 const clearSavedButton = document.querySelector("#clear-saved");
@@ -70,6 +71,8 @@ const vaultCard = document.querySelector("#vault-card");
 let selectedEra = "debut";
 let questionIndex = 0;
 let correctAnswers = 0;
+let currentStreak = 0;
+let bestStreak = Number(localStorage.getItem("bestStreak") || "0");
 let savedEras = JSON.parse(localStorage.getItem("savedEras") || "[]");
 
 function saveState() {
@@ -147,12 +150,18 @@ function checkAnswer(button, choice) {
 
   if (choice === question.answer) {
     correctAnswers += 1;
+    currentStreak += 1;
+    bestStreak = Math.max(bestStreak, currentStreak);
+    localStorage.setItem("bestStreak", String(bestStreak));
     score.textContent = correctAnswers;
     feedback.textContent = "Correct. Saved to your vault score.";
   } else {
+    currentStreak = 0;
     button.classList.add("is-wrong");
     feedback.textContent = `Not quite. The answer is ${question.answer}.`;
   }
+
+  streak.textContent = `Current streak: ${currentStreak} | Best: ${bestStreak}`;
 
   renderVaultCard();
 }
@@ -189,7 +198,7 @@ function renderSaved() {
 
 function renderVaultCard() {
   const savedNames = savedEras.map((key) => eras[key].name).join(", ") || "none yet";
-  vaultCard.textContent = `Current era: ${eras[selectedEra].name}. Saved eras: ${savedNames}. Quiz score: ${correctAnswers}.`;
+  vaultCard.textContent = `Current era: ${eras[selectedEra].name}. Saved eras: ${savedNames}. Quiz score: ${correctAnswers}. Best streak: ${bestStreak}.`;
 }
 
 function clearSaved() {
