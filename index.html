@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fist Tay Tay Project</title>
+    <meta
+      name="description"
+      content="A Taylor Swift inspired interactive fan dashboard with era cards, images, a lyric-fragment game, and saved picks."
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <img
+          class="hero__image"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Taylor_Swift_%2852792050696%29.jpg/960px-Taylor_Swift_%2852792050696%29.jpg"
+          alt="Taylor Swift performing on the Eras Tour in Arlington, Texas"
+        >
+        <div class="hero__shade"></div>
+        <div class="hero__content">
+          <p class="eyebrow">Interactive fan dashboard</p>
+          <h1 id="page-title">Fist Tay Tay Project</h1>
+          <p>
+            Pick an era, test lyric-fragment knowledge, save favorites, and
+            generate a tiny vault card for your next commit.
+          </p>
+        </div>
+      </section>
+
+      <section class="workspace" aria-label="Taylor Swift fan tools">
+        <aside class="panel era-panel">
+          <div class="panel__header">
+            <p class="eyebrow">Era selector</p>
+            <strong id="era-count">1 / 5</strong>
+          </div>
+          <div class="era-list" id="era-list"></div>
+        </aside>
+
+        <section class="panel feature-panel" aria-labelledby="era-name">
+          <img
+            id="era-image"
+            class="feature-panel__image"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Taylor_Swift_2009.jpg/500px-Taylor_Swift_2009.jpg"
+            alt="Taylor Swift at the 2010 Academy of Country Music Awards"
+          >
+          <div class="feature-panel__body">
+            <p class="eyebrow" id="era-year">2006</p>
+            <h2 id="era-name">Debut</h2>
+            <p id="era-description"></p>
+            <div class="swatches" id="swatches" aria-label="Era color palette"></div>
+            <button class="primary-action" type="button" id="save-era">Save era</button>
+          </div>
+        </section>
+
+        <section class="panel quiz-panel" aria-labelledby="quiz-title">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Lyric-fragment game</p>
+              <h2 id="quiz-title">Guess the song</h2>
+            </div>
+            <strong id="score">0</strong>
+          </div>
+          <blockquote id="lyric-fragment"></blockquote>
+          <div class="answers" id="answers"></div>
+          <p class="feedback" id="feedback" aria-live="polite"></p>
+          <button class="secondary-action" type="button" id="next-question">Next clue</button>
+        </section>
+
+        <section class="panel saved-panel" aria-labelledby="saved-title">
+          <div class="panel__header">
+            <div>
+              <p class="eyebrow">Vault card</p>
+              <h2 id="saved-title">Saved picks</h2>
+            </div>
+            <button class="icon-button" type="button" id="clear-saved" aria-label="Clear saved eras">Clear</button>
+          </div>
+          <ul class="saved-list" id="saved-list"></ul>
+          <div class="vault-card" id="vault-card"></div>
+        </section>
+      </section>
+
+      <footer class="credits">
+        Photos: Ronald Woan and Keith Hinkle via Wikimedia Commons. Licensed
+        under CC BY-SA 2.0 and CC BY 2.0; links are in the README.
+      </footer>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
