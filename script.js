@@ -79,13 +79,14 @@ const copyVaultButton = document.querySelector("#copy-vault");
 
 let selectedEra = "debut";
 let questionIndex = 0;
-let correctAnswers = 0;
+let correctAnswers = Number(localStorage.getItem("quizScore") || "0");
 let currentStreak = 0;
 let bestStreak = Number(localStorage.getItem("bestStreak") || "0");
 let savedEras = JSON.parse(localStorage.getItem("savedEras") || "[]");
 
 function saveState() {
   localStorage.setItem("savedEras", JSON.stringify(savedEras));
+  localStorage.setItem("quizScore", String(correctAnswers));
 }
 
 function renderEraButtons() {
@@ -163,6 +164,7 @@ function checkAnswer(button, choice) {
     currentStreak += 1;
     bestStreak = Math.max(bestStreak, currentStreak);
     localStorage.setItem("bestStreak", String(bestStreak));
+    saveState();
     score.textContent = correctAnswers;
     feedback.textContent = "Correct. Saved to your vault score.";
   } else {
@@ -185,6 +187,7 @@ function resetQuiz() {
   questionIndex = 0;
   correctAnswers = 0;
   currentStreak = 0;
+  saveState();
   score.textContent = correctAnswers;
   streak.textContent = `Current streak: ${currentStreak} | Best: ${bestStreak}`;
   renderQuestion();
@@ -276,6 +279,8 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+score.textContent = correctAnswers;
+streak.textContent = `Current streak: ${currentStreak} | Best: ${bestStreak}`;
 renderEra(selectedEra);
 renderQuestion();
 renderSaved();
