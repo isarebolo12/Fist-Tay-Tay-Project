@@ -194,6 +194,11 @@ h2 {
   background: #d9d3ca;
 }
 
+.feature-panel.is-image-fallback .feature-panel__image {
+  object-fit: contain;
+  padding: 28px;
+}
+
 .feature-panel__body { padding: 22px; }
 
 .image-credit {

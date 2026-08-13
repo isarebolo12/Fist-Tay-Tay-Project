@@ -76,6 +76,8 @@ const savedList = document.querySelector("#saved-list");
 const clearSavedButton = document.querySelector("#clear-saved");
 const vaultCard = document.querySelector("#vault-card");
 const copyVaultButton = document.querySelector("#copy-vault");
+const featurePanel = document.querySelector(".feature-panel");
+const fallbackImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'%3E%3Crect width='1200' height='675' fill='%23f7f2ec'/%3E%3Ccircle cx='600' cy='310' r='130' fill='%23ded7cf'/%3E%3Ctext x='600' y='510' text-anchor='middle' font-family='Arial' font-size='48' font-weight='700' fill='%236d6562'%3EImage unavailable%3C/text%3E%3C/svg%3E";
 
 let selectedEra = "debut";
 let questionIndex = 0;
@@ -111,6 +113,7 @@ function renderEra(eraKey) {
   selectedEra = eraKey;
   document.documentElement.style.setProperty("--accent", era.colors[0]);
   document.documentElement.style.setProperty("--accent-strong", era.colors[3]);
+  featurePanel.classList.remove("is-image-fallback");
   eraImage.src = era.image;
   eraImage.alt = era.alt;
   eraYear.textContent = era.year;
@@ -265,6 +268,12 @@ nextQuestionButton.addEventListener("click", nextQuestion);
 resetQuizButton.addEventListener("click", resetQuiz);
 clearSavedButton.addEventListener("click", clearSaved);
 copyVaultButton.addEventListener("click", copyVaultCard);
+eraImage.addEventListener("error", () => {
+  featurePanel.classList.add("is-image-fallback");
+  eraImage.src = fallbackImage;
+  eraImage.alt = "Image unavailable";
+  imageCredit.textContent = `Photo unavailable. Credit: ${eras[selectedEra].credit}`;
+});
 
 document.addEventListener("keydown", (event) => {
   const keys = Object.keys(eras);
