@@ -50,7 +50,10 @@ const lyricQuestions = [
   { fragment: "It's me, hi", answer: "Anti-Hero", choices: ["Anti-Hero", "Cardigan", "Love Story"] },
   { fragment: "long story short", answer: "long story short", choices: ["Enchanted", "long story short", "Red"] },
   { fragment: "we never go out of style", answer: "Style", choices: ["Style", "Delicate", "Cruel Summer"] },
-  { fragment: "I remember it all", answer: "All Too Well", choices: ["All Too Well", "The Archer", "Lover"] }
+  { fragment: "I remember it all", answer: "All Too Well", choices: ["All Too Well", "The Archer", "Lover"] },
+  { fragment: "rainy proposal energy", answer: "Love Story", choices: ["Love Story", "Lavender Haze", "Mirrorball"] },
+  { fragment: "woodland piano mood", answer: "Cardigan", choices: ["Cardigan", "Bejeweled", "Fearless"] },
+  { fragment: "city lights comeback", answer: "Welcome to New York", choices: ["Welcome to New York", "Maroon", "August"] }
 ];
 
 const eraList = document.querySelector("#era-list");
