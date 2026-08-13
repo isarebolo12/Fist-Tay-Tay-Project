@@ -65,6 +65,7 @@ const answers = document.querySelector("#answers");
 const feedback = document.querySelector("#feedback");
 const streak = document.querySelector("#streak");
 const nextQuestionButton = document.querySelector("#next-question");
+const resetQuizButton = document.querySelector("#reset-quiz");
 const savedList = document.querySelector("#saved-list");
 const clearSavedButton = document.querySelector("#clear-saved");
 const vaultCard = document.querySelector("#vault-card");
@@ -173,6 +174,16 @@ function nextQuestion() {
   renderQuestion();
 }
 
+function resetQuiz() {
+  questionIndex = 0;
+  correctAnswers = 0;
+  currentStreak = 0;
+  score.textContent = correctAnswers;
+  streak.textContent = `Current streak: ${currentStreak} | Best: ${bestStreak}`;
+  renderQuestion();
+  renderVaultCard();
+}
+
 function chooseRandomEra() {
   const keys = Object.keys(eras).filter((key) => key !== selectedEra);
   const nextKey = keys[Math.floor(Math.random() * keys.length)];
@@ -241,6 +252,7 @@ function clearSaved() {
 saveEraButton.addEventListener("click", saveEra);
 randomEraButton.addEventListener("click", chooseRandomEra);
 nextQuestionButton.addEventListener("click", nextQuestion);
+resetQuizButton.addEventListener("click", resetQuiz);
 clearSavedButton.addEventListener("click", clearSaved);
 copyVaultButton.addEventListener("click", copyVaultCard);
 
