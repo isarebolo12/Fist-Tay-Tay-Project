@@ -68,6 +68,7 @@ const nextQuestionButton = document.querySelector("#next-question");
 const savedList = document.querySelector("#saved-list");
 const clearSavedButton = document.querySelector("#clear-saved");
 const vaultCard = document.querySelector("#vault-card");
+const copyVaultButton = document.querySelector("#copy-vault");
 
 let selectedEra = "debut";
 let questionIndex = 0;
@@ -208,6 +209,14 @@ function renderVaultCard() {
   vaultCard.textContent = `Current era: ${eras[selectedEra].name}. Saved eras: ${savedNames}. Quiz score: ${correctAnswers}. Best streak: ${bestStreak}.`;
 }
 
+async function copyVaultCard() {
+  await navigator.clipboard.writeText(vaultCard.textContent);
+  copyVaultButton.textContent = "Copied";
+  setTimeout(() => {
+    copyVaultButton.textContent = "Copy vault card";
+  }, 1200);
+}
+
 function clearSaved() {
   savedEras = [];
   saveState();
@@ -219,6 +228,7 @@ saveEraButton.addEventListener("click", saveEra);
 randomEraButton.addEventListener("click", chooseRandomEra);
 nextQuestionButton.addEventListener("click", nextQuestion);
 clearSavedButton.addEventListener("click", clearSaved);
+copyVaultButton.addEventListener("click", copyVaultCard);
 
 renderEra(selectedEra);
 renderQuestion();
