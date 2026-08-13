@@ -251,6 +251,7 @@ blockquote {
 
 .saved-list li {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 10px 12px;
@@ -258,6 +259,18 @@ blockquote {
   border-radius: 8px;
   background: #fff;
   color: var(--muted);
+}
+
+.mini-button {
+  min-height: 32px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbf7f1;
+  color: var(--ink);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
 .vault-card {

@@ -199,7 +199,14 @@ function renderSaved() {
 
   savedEras.forEach((key) => {
     const item = document.createElement("li");
-    item.innerHTML = `<strong>${eras[key].name}</strong><span>${eras[key].year}</span>`;
+    const label = document.createElement("strong");
+    const remove = document.createElement("button");
+    label.textContent = `${eras[key].name} (${eras[key].year})`;
+    remove.className = "mini-button";
+    remove.type = "button";
+    remove.textContent = "Remove";
+    remove.addEventListener("click", () => removeSavedEra(key));
+    item.append(label, remove);
     savedList.append(item);
   });
 }
@@ -215,6 +222,13 @@ async function copyVaultCard() {
   setTimeout(() => {
     copyVaultButton.textContent = "Copy vault card";
   }, 1200);
+}
+
+function removeSavedEra(key) {
+  savedEras = savedEras.filter((savedKey) => savedKey !== key);
+  saveState();
+  renderSaved();
+  renderVaultCard();
 }
 
 function clearSaved() {
